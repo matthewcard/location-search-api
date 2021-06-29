@@ -1,5 +1,7 @@
 const { db } = require('./database/db-connent');
 
+// consider moving this function to a models folder so the function 
+// below and this file will know nothng about the database
 const getResultFromDb = searchTerm => new Promise((resolve, reject) => {
   const sqlRetrieveByTerm = `SELECT * FROM location
   WHERE name LIKE '${searchTerm}%';`;
@@ -29,8 +31,3 @@ const retrieveResults = async (searchTerm) => {
 module.exports = {
   retrieveResults
 };
-
-
-
-
-
